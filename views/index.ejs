@@ -1,0 +1,56 @@
+<html>
+   <body >
+   
+     <P ALIGN=left>
+      <link href="/static/style.css" rel="stylesheet" type="text/css" ></link>
+      <form action = "/process_post/" method = "POST" >
+         <input type= 'url' name = 'url' placeholder='agrega la direccion del video' required/>  <br> </br>
+          <input type= 'text' name = 'personas' placeholder='quien creo el video' /> <br>  </br>      
+         <input type= 'text' name = 'temas'  placeholder='agrega los temas relacionados' /> <br> </br>
+         <input type= 'date' name ='fechas' /> <br> </br>
+          
+         <input type = "submit" value = "Submit"> <br> </br> 
+      </form>
+   
+   <hr>
+   <form action="/search" method="get">
+       <label for="texto">Buscar:<label>
+       <input id="texto" type="text" name="texto" placeholder="personas, temas, o urls..." />
+       <button type="submit">buscar</button>
+   </form>
+  <hr>
+  <table border="1">
+     <thead>
+     	<tr>
+     		<th>id</th>
+     		<th>url</th>
+     		<th>creador</th>
+     		<th>tema</th>
+     		<th>fecha</th>
+     	</tr>
+     </thead>
+     <tbody>
+      <% for(var i=0; i < listado.length; i++) {%>
+   		<tr>
+   			<td>
+   			<%= listado[i].id %>
+   			</td>
+   			<td>
+   			<%= listado[i].url %>
+   			</td>
+   			<td>
+   			 <%= listado[i].creador %>
+   			</td>
+   			<td>
+   			 <%= listado[i].tema %>
+   			</td>
+   			<td>
+   			 <%= listado[i].fecha %>
+   			</td>
+   		</tr>
+	<% } %>     
+     <tbody>
+   </table> 
+  
+   </body>
+</html> 
